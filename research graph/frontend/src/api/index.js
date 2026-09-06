@@ -1,11 +1,11 @@
-// Backend se ek hi call hoti hai:
+// There is only one call to the backend:
 //
-//   POST /api/run   ->  form-data "file"  ->  poora graph result
+//   POST /api/run   ->  form-data "file"  ->  the whole graph result
 //
 //   result = { role_summary, requirements, selected_lanes, evidence,
 //              missing_by_lane, round, exhausted, prep_document, ... }
 //
-// Call 1-3 minute le sakti hai - graph poora chal ke hi jawab deta hai.
+// The call can take 1-3 minutes - the graph answers only once it finishes.
 
 import api from './client'
 

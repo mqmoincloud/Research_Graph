@@ -89,7 +89,7 @@ def review(state):
 
     exhausted = len(lanes_to_rerun) > 0 and next_round >= MAX_ROUNDS
 
-    log("review", str(len(evidence)) + " evidence | kami: " + str(lanes_to_rerun)
+    log("review", str(len(evidence)) + " evidence | gaps: " + str(lanes_to_rerun)
         + " | round " + str(round_number) + " -> " + str(next_round))
 
     return {

@@ -74,11 +74,11 @@ ORCHESTRATOR_SYSTEM = (
 
 
 def log_skip(name, reason):
-    log("orchestrator", "chhoda: " + str(name) + " - " + reason)
+    log("orchestrator", "skipped: " + str(name) + " - " + reason)
 
 
 def log_plan(calls, tool_calls_log, selected_lanes):
-    log("orchestrator", "LLM ne " + str(len(calls)) + " tool call kiye")
+    log("orchestrator", "LLM made " + str(len(calls)) + " tool calls")
 
     for line in tool_calls_log:
         log("orchestrator", "   " + line)
@@ -89,11 +89,11 @@ def log_plan(calls, tool_calls_log, selected_lanes):
             skipped.append(lane)
 
     if len(skipped) > 0:
-        log("orchestrator", "   LLM ne ye NAHI chune: " + str(skipped))
+        log("orchestrator", "   LLM did NOT choose these: " + str(skipped))
 
 
 def empty_plan():
-    log("orchestrator", "koi kaam ka tool call nahi aaya - teeno lanes chalayenge")
+    log("orchestrator", "no usable tool call came back - running all three lanes")
     return {
         "role_summary": "",
         "requirements": [],
@@ -122,13 +122,13 @@ def orchestrator(state):
 
         chosen_tool = TOOL_BY_NAME.get(name)
         if chosen_tool is None:
-            log_skip(name, "aisa koi tool hai hi nahi")
+            log_skip(name, "no such tool exists")
             continue
 
         try:
             plan = chosen_tool.invoke(arguments)
         except Exception as error:
-            log_skip(name, "arguments galat the (" + type(error).__name__ + ")")
+            log_skip(name, "arguments were wrong (" + type(error).__name__ + ")")
             continue
 
         lane = plan["lane"]

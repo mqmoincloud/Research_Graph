@@ -4,10 +4,10 @@ import Loader from './components/Loader'
 import ResultPanel from './components/ResultPanel'
 import { runJd } from './api'
 
-// Poora flow:
-//   1. JD ki file chuno
+// Full flow:
+//   1. Pick the JD file
 //   2. "Start research" -> POST /api/run
-//   3. backend graph poora chalata hai (1-3 min) aur result wapas deta hai
+//   3. the backend runs the whole graph (1-3 min) and returns the result
 
 export default function App() {
   const [file, setFile] = useState(null)
@@ -18,7 +18,7 @@ export default function App() {
 
   const timerRef = useRef(null)
 
-  // Sirf bita hua time ginte hain - backend beech mein kuch nahi bhejta.
+  // We only count elapsed time - the backend sends nothing in between.
   useEffect(() => {
     if (!running) return
 
@@ -51,13 +51,13 @@ export default function App() {
     <div className="page">
       <header className="header">
         <h1>Prep Graph</h1>
-        <p>Job description daalo, poora interview prep plan wapas lo.</p>
+        <p>Drop in a job description, get a full interview prep plan back.</p>
       </header>
 
       <main className="main">
         <FileUpload
           label="Job description"
-          hint="JD ka PDF ya .txt — yahi research ka input hai"
+          hint="PDF or .txt of the JD — this is the research input"
           disabled={running || isDone}
           onPicked={setFile}
           onCleared={() => setFile(null)}
@@ -80,8 +80,8 @@ export default function App() {
                 </button>
                 <span className="run-hint">
                   {file
-                    ? 'Ready — button dabao aur graph chalu ho jayega.'
-                    : 'Pehle JD ki file chuno.'}
+                    ? 'Ready — press the button and the graph starts.'
+                    : 'Pick the JD file first.'}
                 </span>
               </>
             )}

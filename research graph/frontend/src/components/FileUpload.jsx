@@ -1,8 +1,8 @@
 import { useRef, useState } from 'react'
 
-// Sirf file chunne ka box. Upload yahan nahi hota - file parent ko
-// onPicked(file) se chali jaati hai, aur asli call "Start research"
-// dabane par hoti hai.
+// Just the file picker box. No upload happens here - the file goes to
+// the parent through onPicked(file), and the real call happens when
+// "Start research" is pressed.
 //
 // props: label, hint, disabled, onPicked(file), onCleared()
 
@@ -23,11 +23,11 @@ export default function FileUpload({
 
     const name = picked.name.toLowerCase()
     if (!name.endsWith('.pdf') && !name.endsWith('.txt')) {
-      setError('PDF ya .txt file chalegi.')
+      setError('Only a PDF or .txt file works.')
       return
     }
     if (picked.size > 20 * 1024 * 1024) {
-      setError('File 20 MB se badi hai.')
+      setError('File is larger than 20 MB.')
       return
     }
 
@@ -72,7 +72,7 @@ export default function FileUpload({
           onDrop={onDrop}
         >
           <div className="drop-icon">PDF</div>
-          <p className="drop-title">Click karo ya file yahan drag karo</p>
+          <p className="drop-title">Click or drag a file here</p>
           <p className="drop-hint">{hint}</p>
         </div>
       )}

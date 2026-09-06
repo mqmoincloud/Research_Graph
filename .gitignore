@@ -1,4 +1,4 @@
-# ---- SECRETS - ye kabhi commit nahi hone chahiye ----
+# ---- SECRETS - these must never be committed ----
 .env
 .env.*
 !.env.example

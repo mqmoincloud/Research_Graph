@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
-// Final prep document. Markdown ko as-is dikhate hain, saath mein
-// copy aur download ke buttons.
+// Final prep document. We show the markdown as-is, along with
+// copy and download buttons.
 
 export default function ResultPanel({ run, onReset }) {
   const [copied, setCopied] = useState(false)
@@ -41,15 +41,15 @@ export default function ResultPanel({ run, onReset }) {
 
       {run.role_summary && <p className="summary">{run.role_summary}</p>}
 
-      {/* Khaali document par khaali box mat dikhao - warna samajh hi nahi
-          aata ki kya hua. Normally aisa hona nahi chahiye: llm.py khaali
-          jawab par error uthata hai. Ye sirf ek safety net hai. */}
+      {/* Do not show an empty box for an empty document - otherwise there
+          is no telling what happened. Normally this should not happen: llm.py
+          raises an error on an empty answer. This is only a safety net. */}
       {run.prep_document ? (
         <pre className="doc">{run.prep_document}</pre>
       ) : (
         <p className="error-text">
-          Run poora ho gaya lekin document khaali aaya. Backend terminal
-          dekho — wahan “[llm] jawab mila: N characters” line aani chahiye.
+          The run finished but the document came back empty. Check the backend
+          terminal — a “[llm] answer received: N characters” line should be there.
         </p>
       )}
     </div>

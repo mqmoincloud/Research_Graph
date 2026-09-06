@@ -1,7 +1,7 @@
 # Research Graph
 
-Job description daalo, LangGraph teen research lanes parallel chalata hai, aur
-ek interview preparation document banata hai.
+Feed in a job description, LangGraph runs three research lanes in parallel, and
+builds an interview preparation document.
 
 ## Setup
 
@@ -9,14 +9,14 @@ ek interview preparation document banata hai.
 uv sync
 ```
 
-Secrets `.env` mein rakho (project ke andar ya bahar, dono chalega):
+Keep secrets in `.env` (inside the project or outside, both work):
 
 ```
 NVIDIA_API_KEY=nvapi-...
-GITHUB_TOKEN=github_pat_...      # optional, na ho to 60 request/ghanta
+GITHUB_TOKEN=github_pat_...      # optional, without it 60 requests/hour
 ```
 
-## Chalao
+## Run
 
 **Backend:**
 
@@ -24,11 +24,11 @@ GITHUB_TOKEN=github_pat_...      # optional, na ho to 60 request/ghanta
 uv run uvicorn app.main:app --reload --reload-dir app --port 8000
 ```
 
-`--reload-dir app` chhodna mat. Uske bina uvicorn poore folder ko watch karta
-hai - `.venv/` aur `frontend/node_modules/` samet. Vite dev server
-`node_modules/.vite/` mein lagataar likhta rehta hai, uvicorn usko "code badla"
-samajh kar restart kar deta hai, aur chalta hua run memory se gayab ho jaata
-hai -> `GET /api/runs/{id}` par 404.
+Do not drop `--reload-dir app`. Without it uvicorn watches the whole folder -
+including `.venv/` and `frontend/node_modules/`. The Vite dev server keeps
+writing into `node_modules/.vite/`, uvicorn reads that as "the code changed"
+and restarts, and a run in progress disappears from memory
+-> `404` on `GET /api/runs/{id}`.
 
 **Frontend:**
 
@@ -37,19 +37,19 @@ cd frontend
 npm run dev
 ```
 
-Frontend `http://localhost:5200` par khulta hai (5173 par nahi - `vite.config.js`
-mein `strictPort: 5200` hai).
+The frontend opens at `http://localhost:5200` (not 5173 - `vite.config.js`
+has `strictPort: 5200`).
 
-`frontend/.env` badalne ke baad Vite ko RESTART karna padta hai - `.env` sirf
-start hote waqt padhi jaati hai, hot-reload usse nahi uthata.
+After changing `frontend/.env` you have to RESTART Vite - `.env` is only read
+at startup, hot-reload does not pick it up.
 
-**Sirf graph, bina API ke:**
+**Only the graph, without the API:**
 
 ```bash
 uv run python scripts/run_cli.py
 ```
 
-**Graph ki tasveer (mermaid):**
+**Picture of the graph (mermaid):**
 
 ```bash
 uv run python scripts/draw_graph.py
@@ -57,23 +57,23 @@ uv run python scripts/draw_graph.py
 
 ## Files
 
-| File | Kaam |
+| File | Job |
 |---|---|
-| `app/state.py` | Graph ki state. `evidence` par reducer hai - lanes ek saath likhti hain |
-| `app/graph.py` | Nodes ko jodna, `choose_lanes` aur `decide_next_step` router |
-| `app/nodes/orchestrator.py` | JD padhta hai, LLM ke **tool calls** se lanes chunta hai |
-| `app/nodes/research.py` | Teen lanes - tech (GitHub), soft aur general (web) |
-| `app/nodes/review.py` | Kis lane mein kami hai, ye batata hai |
-| `app/nodes/compose.py` | Aakhri markdown document |
-| `app/llm.py` | LLM se baat karne ki ek jagah - `ask_with_tools` / `ask_json` / `ask_text` |
-| `app/tool_specs.py` | Tools ki definitions, jo LLM ko bheji jaati hain |
-| `app/tools.py` | GitHub aur web search |
-| `app/pdf.py` | PDF se text |
-| `app/config.py` | Secrets aur constants (`MAX_ROUNDS`, lane names) |
+| `app/state.py` | The graph state. `evidence` has a reducer - lanes write at the same time |
+| `app/graph.py` | Wiring the nodes together, `choose_lanes` and `decide_next_step` routers |
+| `app/nodes/orchestrator.py` | Reads the JD, picks lanes from the LLM's **tool calls** |
+| `app/nodes/research.py` | Three lanes - tech (GitHub), soft and general (web) |
+| `app/nodes/review.py` | Says which lane is still missing something |
+| `app/nodes/compose.py` | The final markdown document |
+| `app/llm.py` | One place to talk to the LLM - `ask_with_tools` / `ask_json` / `ask_text` |
+| `app/tool_specs.py` | The tool definitions that get sent to the LLM |
+| `app/tools.py` | GitHub and web search |
+| `app/pdf.py` | Text out of a PDF |
+| `app/config.py` | Secrets and constants (`MAX_ROUNDS`, lane names) |
 | `app/logs.py` | Terminal logs |
 | `app/main.py` | FastAPI |
-| `scripts/run_cli.py` | Graph ko seedha terminal se chalane ke liye |
-| `scripts/draw_graph.py` | Graph ka mermaid diagram |
+| `scripts/run_cli.py` | For running the graph straight from the terminal |
+| `scripts/draw_graph.py` | Mermaid diagram of the graph |
 
 ## Graph
 
@@ -81,13 +81,13 @@ uv run python scripts/draw_graph.py
 START -> orchestrator -> tech_research    -+
                       -> soft_research     +-> review -> compose -> END
                       -> general_research -+      |
-                                                  +-> wapas un lanes par
-                                                      jinme kami hai
+                                                  +-> back to the lanes
+                                                      that are missing things
                                                       (max 1 retry)
 ```
 
-## Scan kiye hue PDF
+## Scanned PDFs
 
-Support nahi hai. `pypdf` sirf text layer padhta hai, image se text nahi
-nikaal sakta - toh scan kiya hua PDF upload par `400` ke saath ruk jaata
-hai. Text wala PDF ya `.txt` use karo.
+Not supported. `pypdf` only reads the text layer, it cannot pull text out of
+an image - so a scanned PDF stops at upload with a `400`. Use a PDF with
+text, or a `.txt`.

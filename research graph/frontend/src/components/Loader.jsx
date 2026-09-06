@@ -1,7 +1,7 @@
-// Run chalne ke dauraan dikhne wala block.
+// The block shown while a run is going.
 //
-// Backend ek hi call mein poora graph chalata hai, isliye beech ka
-// live status nahi milta - sirf spinner aur bita hua time.
+// The backend runs the whole graph in one call, so there is no live
+// status in between - only a spinner and the elapsed time.
 //
 // props: seconds
 
@@ -10,12 +10,12 @@ export default function Loader({ seconds }) {
     <div className="loader">
       <div className="spinner" />
       <div className="loader-text">
-        <strong>Research chal raha hai…</strong>
-        <span>graph poora chal ke hi jawab deta hai</span>
+        <strong>Research is running…</strong>
+        <span>the graph answers only once it finishes</span>
       </div>
       <div className="loader-stats">
         <span>{seconds}s</span>
-        <span>1-3 minute lag sakte hain</span>
+        <span>can take 1-3 minutes</span>
       </div>
     </div>
   )

@@ -49,7 +49,7 @@ def load_api_key():
         if found:
             return found.group(0)
 
-    raise RuntimeError("NVIDIA_API_KEY nahi mila. .env mein daalo.")
+    raise RuntimeError("NVIDIA_API_KEY not found. Put it in .env.")
 
 
 llm = ChatOpenAI(
@@ -133,7 +133,7 @@ def ask_json(prompt, required_keys):
         try:
             data = json.loads(text)
         except json.JSONDecodeError:
-            print("   [llm] JSON nahi aaya, dobara poochte hain (" + str(attempt) + "/2)")
+            print("   [llm] no JSON came back, asking again (" + str(attempt) + "/2)")
             message = prompt + "\n\nYour previous reply was not valid JSON. Return only JSON."
             continue
 
@@ -145,11 +145,11 @@ def ask_json(prompt, required_keys):
         if len(missing) == 0:
             return data
 
-        print("   [llm] ye keys missing thi: " + str(missing) + ", dobara poochte hain")
+        print("   [llm] these keys were missing: " + str(missing) + ", asking again")
         message = (prompt + "\n\nYour previous reply was missing these keys: "
                    + str(missing) + ". Use exactly these key names.")
 
-    raise RuntimeError("LLM ne do baar galat JSON diya")
+    raise RuntimeError("The LLM returned invalid JSON twice")
 
 
 def ask_text(prompt):
@@ -167,19 +167,19 @@ def ask_text(prompt):
         finish_reason = finish_reason_of(answer)
 
         if text != "":
-            print("   [llm] jawab mila: " + str(len(text)) + " characters | finish="
+            print("   [llm] answer received: " + str(len(text)) + " characters | finish="
                   + str(finish_reason))
             return text
 
-        print("   [llm] khaali jawab aaya (finish=" + str(finish_reason)
-              + "), dobara poochte hain (" + str(attempt) + "/"
+        print("   [llm] empty answer came back (finish=" + str(finish_reason)
+              + "), asking again (" + str(attempt) + "/"
               + str(TEXT_ATTEMPTS) + ")")
 
         if attempt < TEXT_ATTEMPTS:
             time.sleep(RETRY_WAIT_SECONDS)
 
     raise RuntimeError(
-        "LLM ne " + str(TEXT_ATTEMPTS) + " baar khaali jawab diya "
-        "(finish_reason=" + str(finish_reason) + "). Ye model ki apni "
-        "dikkat hai, prompt ki nahi."
+        "The LLM returned an empty answer " + str(TEXT_ATTEMPTS) + " times "
+        "(finish_reason=" + str(finish_reason) + "). This is the model's own "
+        "problem, not the prompt's."
     )

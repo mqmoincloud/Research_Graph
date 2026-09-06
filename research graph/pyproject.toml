@@ -1,7 +1,7 @@
 [project]
 name = "research-graph"
 version = "0.1.0"
-description = "JD se interview prep document banane wala LangGraph project"
+description = "LangGraph project that builds an interview prep document from a JD"
 readme = "README.md"
 authors = [
     { name = "Qaisar Moin", email = "mqmoin@cloudlex.com" }
@@ -20,11 +20,11 @@ dependencies = [
     "langchain-openai>=1.6.0",
 ]
 
-# Ye ek APPLICATION hai, library nahi - isko pip se install karke koi
-# import nahi karega. Isliye build backend ki zaroorat nahi.
+# This is an APPLICATION, not a library - nobody will pip install it and
+# import it. So no build backend is needed.
 [tool.uv]
 package = false
 
-# Sirf scan kiye hue PDF ke liye. Inko chalane ke liye do ALAG WINDOWS
-# PROGRAM bhi chahiye (Tesseract aur Poppler), sirf pip kaafi nahi.
-# Zaroorat pade to:  uv sync --group ocr
+# Only for scanned PDFs. Running these also needs two SEPARATE WINDOWS
+# PROGRAMS (Tesseract and Poppler), pip alone is not enough.
+# If you need it:  uv sync --group ocr

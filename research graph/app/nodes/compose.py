@@ -235,7 +235,7 @@ def compose(state):
         used_fallback = False
     except Exception as error:
         log("compose", "LLM fail: " + str(error))
-        log("compose", "fallback document bana rahe hain (research se, bina LLM ke)")
+        log("compose", "building a fallback document (from research, without the LLM)")
         document = build_fallback_document(role_summary, requirements, evidence)
         used_fallback = True
 
@@ -252,8 +252,8 @@ def compose(state):
         kind = "FALLBACK"
 
     log("compose", kind + " | " + str(len(ev_lines)) + "/" + str(len(evidence))
-        + " evidence prompt mein | " + str(covered) + "/" + str(len(requirements))
-        + " requirements ka material mila | " + str(len(repos))
+        + " evidence in the prompt | " + str(covered) + "/" + str(len(requirements))
+        + " requirements had material | " + str(len(repos))
         + " github repos | document " + str(len(document)) + " chars")
 
     return {"prep_document": document}

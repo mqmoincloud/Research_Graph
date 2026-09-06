@@ -43,13 +43,13 @@ def choose_lanes(state):
             skipped.append(lane)
 
     if len(node_names) == 0:
-        log("fan-out", "kuch nahi chuna gaya - teeno chala rahe hain")
+        log("fan-out", "nothing was chosen - running all three")
         return list(LANE_TO_NODE.values())
 
     if len(skipped) > 0:
-        log("fan-out", "LLM ne chune: " + str(node_names) + "  |  SKIP: " + str(skipped))
+        log("fan-out", "LLM chose: " + str(node_names) + "  |  SKIP: " + str(skipped))
     else:
-        log("fan-out", "LLM ne teeno chune: " + str(node_names))
+        log("fan-out", "LLM chose all three: " + str(node_names))
 
     return node_names
 
@@ -59,18 +59,18 @@ def decide_next_step(state):
     round_number = state.get("round", 0)
 
     if len(lanes) == 0:
-        log("router", "koi kami nahi -> compose")
+        log("router", "nothing missing -> compose")
         return "compose"
 
     if round_number >= MAX_ROUNDS:
-        log("router", "budget khatam -> compose")
+        log("router", "budget used up -> compose")
         return "compose"
 
     node_names = []
     for lane in lanes:
         node_names.append(LANE_TO_NODE[lane])
 
-    log("router", "kami hai " + str(lanes) + " -> dobara chalao " + str(node_names))
+    log("router", "gaps in " + str(lanes) + " -> rerun " + str(node_names))
     return node_names
 
 

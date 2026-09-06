@@ -7,9 +7,9 @@ GITHUB_TOKEN = get_secret("GITHUB_TOKEN")
 TAVILY_API_KEY = get_secret("TAVILY_API_KEY")
 
 
-# Teeno search ek jaisi list dete hain:
+# All three searches return the same kind of list:
 #   [{"source": ..., "title": ..., "url": ..., "snippet": ...}, ...]
-# Fail par khaali list - crash nahi, taaki caller doosri search try kar sake.
+# Empty list on failure - no crash, so the caller can try another search.
 
 def search_github(query, how_many=3):
     headers = {"Accept": "application/vnd.github+json"}
@@ -71,7 +71,7 @@ def search_web(query, how_many=3):
         with DDGS() as ddgs:
             hits = list(ddgs.text(query, max_results=how_many))
     except Exception as error:
-        print(f"      [web] fail: {type(error).__name__} - shayad rate limit")
+        print(f"      [web] fail: {type(error).__name__} - probably a rate limit")
         return []
 
     return [
@@ -87,7 +87,7 @@ def search_web(query, how_many=3):
 
 def make_query(lane, skill, role_summary):
     if lane == "technical":
-        # GitHub lambi query par 0 result deta hai, isliye sirf pehle 3 shabd.
+        # GitHub returns 0 results for a long query, so only the first 3 words.
         #first_three_words + " interview" = Fastapi interview for technical
         return " ".join(skill.split()[:3]) + " interview"
 
@@ -98,7 +98,7 @@ def make_query(lane, skill, role_summary):
 
 
 def run_search(lane, query, skill):
-    # "a or b" ka matlab: a khaali list ho to b chala do.
+    # "a or b" means: if a is an empty list, run b.
     if lane == "technical":
         return search_github(query) or search_web(f"{skill} interview questions")
 
@@ -118,23 +118,23 @@ def do_research(state, lane):
         if req["lane"] == lane
     ]
 
-    # Retry round mein skills nahi, review ke bataye gaps search karo.
-    # Missing lanes ko priority dene ke liye ye zaroori hai.
+    # In a retry round search the gaps review reported, not the skills.
+    # This is needed to give the missing lanes priority.
     gaps = state.get("missing_by_lane", {}).get(lane, [])
     if gaps:
         skills = gaps
 
     if not skills and lane == "technical":
-        log(lane, "lane khaali hai - ek bhi API call nahi")
+        log(lane, "lane is empty - not a single API call")
         return {"evidence": []}
 
     if not skills:
-        log(lane, "lane khaali - baseline query")
+        log(lane, "lane empty - baseline query")
         skills = ["general interview preparation"]
 
     evidence = []
 
-    # skills = ["FastAPI", "PostgreSQL"] aesa dekhta hai skills list mein, aur har skill ke liye query banata hai.
+    # skills = ["FastAPI", "PostgreSQL"] is how the skills list looks, and it builds a query for each skill.
     for skill in skills:
         query = make_query(lane, skill, role_summary)
 

@@ -19,16 +19,16 @@ work closely with the product team.
 
 
 print("=" * 72)
-print("JD daal rahe hain")
+print("Feeding in the JD")
 print("=" * 72)
 
 graph = build_graph()
 result = graph.invoke({"jd_text": JD})
 
 print()
-print("kitna evidence mila :", len(result["evidence"]))
-print("kitne round chale   :", result["round"])
-print("budget khatam hua   :", result["exhausted"])
+print("evidence found      :", len(result["evidence"]))
+print("rounds run          :", result["round"])
+print("budget used up      :", result["exhausted"])
 print()
 print("-" * 72)
 print(result["prep_document"])
