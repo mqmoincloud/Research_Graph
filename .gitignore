@@ -1,0 +1,19 @@
+# ---- SECRETS - ye kabhi commit nahi hone chahiye ----
+.env
+.env.*
+!.env.example
+apikey.md
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# ---- Node / frontend ----
+node_modules/
+dist/
+
+# ---- Misc ----
+*.log
+.DS_Store

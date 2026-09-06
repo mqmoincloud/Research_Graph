@@ -1,0 +1,30 @@
+[project]
+name = "research-graph"
+version = "0.1.0"
+description = "JD se interview prep document banane wala LangGraph project"
+readme = "README.md"
+authors = [
+    { name = "Qaisar Moin", email = "mqmoin@cloudlex.com" }
+]
+requires-python = ">=3.14"
+
+dependencies = [
+    "langgraph>=0.2.60",
+    "openai>=1.40",
+    "requests>=2.32",
+    "ddgs>=9.0",
+    "pypdf>=5.0",
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.30",
+    "python-multipart>=0.0.9",
+    "langchain-openai>=1.6.0",
+]
+
+# Ye ek APPLICATION hai, library nahi - isko pip se install karke koi
+# import nahi karega. Isliye build backend ki zaroorat nahi.
+[tool.uv]
+package = false
+
+# Sirf scan kiye hue PDF ke liye. Inko chalane ke liye do ALAG WINDOWS
+# PROGRAM bhi chahiye (Tesseract aur Poppler), sirf pip kaafi nahi.
+# Zaroorat pade to:  uv sync --group ocr

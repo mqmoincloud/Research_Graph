@@ -1,0 +1,8 @@
+Backend Engineer
+
+Build and maintain REST APIs using Python and FastAPI.
+Design and optimise PostgreSQL schemas for high write throughput.
+Containerise services with Docker and deploy to AWS.
+Write unit and integration tests.
+
+Fintech startup, Bangalore. 3+ years experience.

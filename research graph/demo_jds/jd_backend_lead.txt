@@ -1,0 +1,8 @@
+Senior Backend Engineer
+
+Build and maintain REST APIs using Python and FastAPI.
+Design PostgreSQL schemas and containerise services with Docker.
+Mentor junior developers and run code reviews.
+Work closely with product managers to shape requirements.
+
+Fintech startup, Bangalore. 5+ years experience.
