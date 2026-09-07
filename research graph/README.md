@@ -27,8 +27,9 @@ uv run uvicorn app.main:app --reload --reload-dir app --port 8000
 Do not drop `--reload-dir app`. Without it uvicorn watches the whole folder -
 including `.venv/` and `frontend/node_modules/`. The Vite dev server keeps
 writing into `node_modules/.vite/`, uvicorn reads that as "the code changed"
-and restarts, and a run in progress disappears from memory
--> `404` on `GET /api/runs/{id}`.
+and restarts. `POST /api/run` runs the whole graph inside the one request, so
+a restart in the middle kills the request that is in flight - the browser just
+sees the connection drop, and the minutes of research are gone.
 
 **Frontend:**
 
@@ -59,19 +60,14 @@ uv run python scripts/draw_graph.py
 
 | File | Job |
 |---|---|
-| `app/state.py` | The graph state. `evidence` has a reducer - lanes write at the same time |
-| `app/graph.py` | Wiring the nodes together, `choose_lanes` and `decide_next_step` routers |
-| `app/nodes/orchestrator.py` | Reads the JD, picks lanes from the LLM's **tool calls** |
-| `app/nodes/research.py` | Three lanes - tech (GitHub), soft and general (web) |
+| `app/graph.py` | The state (`PrepState` - `evidence` has a reducer, lanes write at the same time), the node wiring, and the `choose_lanes` / `decide_next_step` routers |
+| `app/nodes/orchestrator.py` | Reads the JD, picks lanes from the LLM's **tool calls**. The tool definitions (`@tool`) sent to the LLM live here too |
+| `app/nodes/research.py` | Three lanes - tech (GitHub), soft and general (web). The GitHub and web search calls themselves are in here |
 | `app/nodes/review.py` | Says which lane is still missing something |
 | `app/nodes/compose.py` | The final markdown document |
 | `app/llm.py` | One place to talk to the LLM - `ask_with_tools` / `ask_json` / `ask_text` |
-| `app/tool_specs.py` | The tool definitions that get sent to the LLM |
-| `app/tools.py` | GitHub and web search |
-| `app/pdf.py` | Text out of a PDF |
-| `app/config.py` | Secrets and constants (`MAX_ROUNDS`, lane names) |
-| `app/logs.py` | Terminal logs |
-| `app/main.py` | FastAPI |
+| `app/config.py` | Secrets, the constants (`MAX_ROUNDS`, lane names) and the `log` helper for terminal logs |
+| `app/main.py` | FastAPI - a single `POST /api/run`. Also pulls the text out of an uploaded PDF with `pypdf` |
 | `scripts/run_cli.py` | For running the graph straight from the terminal |
 | `scripts/draw_graph.py` | Mermaid diagram of the graph |
 
@@ -89,5 +85,6 @@ START -> orchestrator -> tech_research    -+
 ## Scanned PDFs
 
 Not supported. `pypdf` only reads the text layer, it cannot pull text out of
-an image - so a scanned PDF stops at upload with a `400`. Use a PDF with
-text, or a `.txt`.
+an image - so a scanned PDF comes back as empty text. There is no check for
+this yet: the graph starts anyway with an empty JD and produces a useless
+document. Use a PDF that has real text, or a `.txt`.
