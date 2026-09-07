@@ -114,7 +114,9 @@ def ask_with_tools(system_prompt, user_prompt, tools):
         HumanMessage(content=user_prompt),
     ])
 
-
+    # [
+#   {"name": "technical_research", "args": {"skills": ["Python", "Django"]}},
+#   ]
     return answer.tool_calls or []
 
 
