@@ -237,6 +237,58 @@ button {
   font-size: 13px;
 }
 
+/* ---- saved sample runs ---- */
+.demo-bar {
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px dashed var(--line);
+}
+
+.demo-label {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.demo-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.demo-button {
+  padding: 8px 14px;
+  background: var(--panel-2);
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-size: 13px;
+}
+
+.demo-button:hover:not(:disabled) {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.demo-button:disabled {
+  color: var(--muted);
+  cursor: not-allowed;
+}
+
+/* The one thing separating a saved run from a live one on screen. */
+.badge {
+  margin-left: 10px;
+  padding: 2px 8px;
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 500;
+  vertical-align: middle;
+}
+
 /* ---- loader ---- */
 .loader {
   display: flex;
@@ -318,5 +370,176 @@ button {
   background: rgba(248, 113, 113, 0.08);
   border: 1px solid rgba(248, 113, 113, 0.3);
   border-radius: 8px;
+  color: var(--err);
+}
+
+/* ---- top bar ---- */
+.topbar {
+  border-bottom: 1px solid var(--line);
+  background: var(--panel);
+}
+
+.topbar-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  min-height: 52px;
+  flex-wrap: wrap;
+}
+
+.brand {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.nav-link {
+  color: var(--muted);
+  font-size: 13px;
+  text-decoration: none;
+  padding: 4px 0;
+  border-bottom: 2px solid transparent;
+}
+
+.nav-link:hover {
+  color: var(--text);
+}
+
+.nav-link-on {
+  color: var(--text);
+  border-bottom-color: var(--accent);
+}
+
+.topbar-right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.who {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* ---- login / signup ---- */
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.auth-box {
+  width: 100%;
+  max-width: 340px;
+}
+
+.auth-title {
+  margin: 0 0 20px;
+  font-size: 22px;
+  text-align: center;
+  letter-spacing: -0.02em;
+}
+
+.auth-foot {
+  margin: 18px 0 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.accent-link {
+  color: var(--accent);
+}
+
+/* ---- forms ---- */
+.field-label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.field {
+  display: block;
+  width: 100%;
+  margin-bottom: 14px;
+  padding: 9px 11px;
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--text);
+  font: inherit;
+}
+
+.field:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.field-hint {
+  margin: -8px 0 14px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.wide {
+  width: 100%;
+}
+
+.stacked {
+  margin-top: 16px;
+}
+
+.ok-text {
+  margin: 10px 0;
+  color: var(--ok);
+  font-size: 12px;
+}
+
+/* ---- users table ---- */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.table th {
+  text-align: left;
+  padding: 6px 8px;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.table td {
+  padding: 10px 8px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: middle;
+}
+
+.table tr:last-child td {
+  border-bottom: none;
+}
+
+.dim {
+  color: var(--muted);
+}
+
+.row-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+.danger {
+  color: var(--err);
+}
+
+.danger:hover {
   color: var(--err);
 }

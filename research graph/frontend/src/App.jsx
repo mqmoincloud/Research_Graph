@@ -1,95 +1,44 @@
-import { useEffect, useRef, useState } from 'react'
-import FileUpload from './components/FileUpload'
-import Loader from './components/Loader'
-import ResultPanel from './components/ResultPanel'
-import { runJd } from './api'
+import { Navigate, Route, Routes, useOutletContext } from 'react-router-dom'
 
-// Full flow:
-//   1. Pick the JD file
-//   2. "Start research" -> POST /api/run
-//   3. the backend runs the whole graph (1-3 min) and returns the result
+import { getToken } from './api/client'
+import Layout from './components/Layout'
+import AdminUsers from './pages/AdminUsers'
+import Login from './pages/Login'
+import PrepGraph from './pages/PrepGraph'
+import Profile from './pages/Profile'
+import Signup from './pages/Signup'
+
+// Routes re-runs this on every navigation, so the token is read fresh each
+// time. Reading it in App instead would only happen on the first render, and
+// logging in would not be noticed until the page was reloaded by hand.
+function Protected() {
+  return getToken() ? <Layout /> : <Navigate to="/login" />
+}
+
+// The users page is admin-only. The role comes from Layout, which got it from
+// /me - not from anything the browser stores. Even so this only hides the
+// screen; the API returns 403 to a plain user regardless, and THAT is where
+// the rule actually lives.
+function AdminOnly({ children }) {
+  const user = useOutletContext()
+  return user.role === 'admin' ? children : <Navigate to="/" />
+}
 
 export default function App() {
-  const [file, setFile] = useState(null)
-  const [result, setResult] = useState(null)
-  const [running, setRunning] = useState(false)
-  const [seconds, setSeconds] = useState(0)
-  const [error, setError] = useState('')
-
-  const timerRef = useRef(null)
-
-  // We only count elapsed time - the backend sends nothing in between.
-  useEffect(() => {
-    if (!running) return
-
-    setSeconds(0)
-    timerRef.current = setInterval(() => setSeconds((s) => s + 1), 1000)
-
-    return () => clearInterval(timerRef.current)
-  }, [running])
-
-  async function handleStart() {
-    setError('')
-    setRunning(true)
-    try {
-      setResult(await runJd(file))
-    } catch (err) {
-      setError(err.message)
-    } finally {
-      setRunning(false)
-    }
-  }
-
-  function handleReset() {
-    setResult(null)
-    setError('')
-  }
-
-  const isDone = Boolean(result)
-
   return (
-    <div className="page">
-      <header className="header">
-        <h1>Prep Graph</h1>
-        <p>Drop in a job description, get a full interview prep plan back.</p>
-      </header>
+    <Routes>
+      <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<Signup />} />
 
-      <main className="main">
-        <FileUpload
-          label="Job description"
-          hint="PDF or .txt of the JD — this is the research input"
-          disabled={running || isDone}
-          onPicked={setFile}
-          onCleared={() => setFile(null)}
-        />
+      {/* Everything inside here shares the top bar, and the login check is
+          written once instead of on every single route. */}
+      <Route element={<Protected />}>
+        <Route path="/" element={<PrepGraph />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/users" element={<AdminOnly><AdminUsers /></AdminOnly>} />
+      </Route>
 
-        {error && <div className="error-box">{error}</div>}
-
-        {!isDone && (
-          <div className="run-bar">
-            {running ? (
-              <Loader seconds={seconds} />
-            ) : (
-              <>
-                <button
-                  className="primary"
-                  disabled={!file}
-                  onClick={handleStart}
-                >
-                  Start research
-                </button>
-                <span className="run-hint">
-                  {file
-                    ? 'Ready — press the button and the graph starts.'
-                    : 'Pick the JD file first.'}
-                </span>
-              </>
-            )}
-          </div>
-        )}
-
-        {isDone && <ResultPanel run={result} onReset={handleReset} />}
-      </main>
-    </div>
+      <Route path="*" element={<Navigate to="/" />} />
+    </Routes>
   )
 }

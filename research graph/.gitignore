@@ -18,3 +18,9 @@ apikey.md
 # Node / frontend
 node_modules/
 dist/
+
+# SQLite database - created by `alembic upgrade head`, never committed.
+# WAL mode writes two sidecar files next to it, and *.db misses both.
+*.db
+*.db-wal
+*.db-shm

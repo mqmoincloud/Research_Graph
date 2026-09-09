@@ -2,9 +2,19 @@ import { useState } from 'react'
 
 // Final prep document. We show the markdown as-is, along with
 // copy and download buttons.
+//
+// The same panel shows a saved sample run (GET /api/demo/:name returns the
+// same shape POST /api/run does). The only difference is the badge - without
+// it there would be no way to tell a saved document from one just produced.
 
 export default function ResultPanel({ run, onReset }) {
   const [copied, setCopied] = useState(false)
+
+  // saved_at only comes back on a demo. toLocaleDateString on a bad string
+  // gives "Invalid Date", so we check before showing anything.
+  const savedDate = run.saved_at ? new Date(run.saved_at) : null
+  const savedOn =
+    savedDate && !isNaN(savedDate) ? savedDate.toLocaleDateString() : ''
 
   async function copy() {
     await navigator.clipboard.writeText(run.prep_document || '')
@@ -25,7 +35,14 @@ export default function ResultPanel({ run, onReset }) {
   return (
     <div className="card result">
       <div className="card-head">
-        <h3>Prep plan</h3>
+        <h3>
+          Prep plan
+          {run.is_demo && (
+            <span className="badge" title={`Saved run, not a live one${savedOn ? ` — from ${savedOn}` : ''}`}>
+              sample run{savedOn ? ` · ${savedOn}` : ''}
+            </span>
+          )}
+        </h3>
         <div className="actions">
           <button className="link" onClick={copy}>
             {copied ? 'copied' : 'copy'}
@@ -34,7 +51,7 @@ export default function ResultPanel({ run, onReset }) {
             download
           </button>
           <button className="link" onClick={onReset}>
-            new run
+            {run.is_demo ? 'close' : 'new run'}
           </button>
         </div>
       </div>

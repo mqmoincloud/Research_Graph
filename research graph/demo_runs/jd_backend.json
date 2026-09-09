@@ -1,0 +1,423 @@
+{
+  "name": "jd_backend",
+  "label": "Backend Engineer",
+  "jd_file": "jd_backend.txt",
+  "saved_at": "2026-09-07T15:59:19",
+  "result": {
+    "jd_text": "Backend Engineer\n\nBuild and maintain REST APIs using Python and FastAPI.\nDesign and optimise PostgreSQL schemas for high write throughput.\nContainerise services with Docker and deploy to AWS.\nWrite unit and integration tests.\n\nFintech startup, Bangalore. 3+ years experience.",
+    "role_summary": "Backend Engineer at a fintech startup in Bangalore",
+    "requirements": [
+      {
+        "skill": "Python",
+        "lane": "technical"
+      },
+      {
+        "skill": "FastAPI",
+        "lane": "technical"
+      },
+      {
+        "skill": "PostgreSQL",
+        "lane": "technical"
+      },
+      {
+        "skill": "Docker",
+        "lane": "technical"
+      },
+      {
+        "skill": "AWS",
+        "lane": "technical"
+      },
+      {
+        "skill": "REST API design",
+        "lane": "technical"
+      },
+      {
+        "skill": "unit testing",
+        "lane": "technical"
+      },
+      {
+        "skill": "integration testing",
+        "lane": "technical"
+      },
+      {
+        "skill": "high write throughput optimization",
+        "lane": "technical"
+      },
+      {
+        "skill": "fintech industry",
+        "lane": "general"
+      },
+      {
+        "skill": "Bangalore tech startup ecosystem",
+        "lane": "general"
+      },
+      {
+        "skill": "typical backend engineer interview process",
+        "lane": "general"
+      },
+      {
+        "skill": "AWS services for deployment",
+        "lane": "general"
+      },
+      {
+        "skill": "PostgreSQL performance optimization",
+        "lane": "general"
+      }
+    ],
+    "selected_lanes": [
+      "technical",
+      "general"
+    ],
+    "evidence": [
+      {
+        "lane": "general",
+        "skill": "fintech industry",
+        "source": "web",
+        "title": "Fintech Startup in India is hiring Backend Engineer job in Bengaluru (Bangalore) | Cutshort",
+        "url": "https://cutshort.io/job/Backend-Engineer-Bengaluru-Bangalore-Meyrahkee-Advisors-t7EbjIEU",
+        "snippet": "Apply to Backend Engineer job at Fintech Startup in India in Bengaluru (Bangalore) from 3 - 7 years of experience."
+      },
+      {
+        "lane": "general",
+        "skill": "fintech industry",
+        "source": "web",
+        "title": "34 Fintech Interview Questions & Answers (2025) | Glassdoor",
+        "url": "https://www.glassdoor.co.in/Interview/Fintech-Interview-Questions-E816003.htm",
+        "snippet": "I applied through university. I interviewed at Fintech (Gāndhīnagar, Gujarat) in Sept 2024 ... Position: Software Engineer – Backend Interview Experience: Positive Outcome: Offer Accepted Location: Bangalore, India Application Method: Applied through campus placement Interview Process: 1."
+      },
+      {
+        "lane": "general",
+        "skill": "fintech industry",
+        "source": "web",
+        "title": "fintech startup is hiring Backend Engineer job in Bengaluru (Bangalore) | Cutshort",
+        "url": "https://cutshort.io/job/Backend-Engineer-Bengaluru-Bangalore-Qrata-cgLWQcfy",
+        "snippet": "Apply to Backend Engineer job at fintech startup in Bengaluru (Bangalore) from 5 - 9 years of experience."
+      },
+      {
+        "lane": "general",
+        "skill": "Bangalore tech startup ecosystem",
+        "source": "web",
+        "title": "Fintech Startup in India is hiring Backend Engineer job in Bengaluru (Bangalore) | Cutshort",
+        "url": "https://cutshort.io/job/Backend-Engineer-Bengaluru-Bangalore-Meyrahkee-Advisors-t7EbjIEU",
+        "snippet": "Apply to Backend Engineer job at Fintech Startup in India in Bengaluru (Bangalore) from 3 - 7 years of experience."
+      },
+      {
+        "lane": "general",
+        "skill": "Bangalore tech startup ecosystem",
+        "source": "web",
+        "title": "fintech startup is hiring Backend Engineer job in Bengaluru (Bangalore) | Cutshort",
+        "url": "https://cutshort.io/job/Backend-Engineer-Bengaluru-Bangalore-Qrata-cgLWQcfy",
+        "snippet": "Apply to Backend Engineer job at fintech startup in Bengaluru (Bangalore) from 5 - 9 years of experience."
+      },
+      {
+        "lane": "general",
+        "skill": "Bangalore tech startup ecosystem",
+        "source": "web",
+        "title": "Leading Fintech Startup is hiring Senior Backend Engineer job in Bengaluru (Bangalore) | Cutshort",
+        "url": "https://cutshort.io/job/Senior-Backend-Engineer-Bengaluru-Bangalore-Qrata-yiAaMEIu",
+        "snippet": "Apply to Senior Backend Engineer job at Leading Fintech Startup in Bengaluru (Bangalore) from 3 - 4 years of experience."
+      },
+      {
+        "lane": "general",
+        "skill": "typical backend engineer interview process",
+        "source": "web",
+        "title": "Fintech Startup in India is hiring Backend Engineer job in Bengaluru (Bangalore) | Cutshort",
+        "url": "https://cutshort.io/job/Backend-Engineer-Bengaluru-Bangalore-Meyrahkee-Advisors-t7EbjIEU",
+        "snippet": "Apply to Backend Engineer job at Fintech Startup in India in Bengaluru (Bangalore) from 3 - 7 years of experience."
+      },
+      {
+        "lane": "general",
+        "skill": "typical backend engineer interview process",
+        "source": "web",
+        "title": "fintech startup is hiring Backend Engineer job in Bengaluru (Bangalore) | Cutshort",
+        "url": "https://cutshort.io/job/Backend-Engineer-Bengaluru-Bangalore-Qrata-cgLWQcfy",
+        "snippet": "Apply to Backend Engineer job at fintech startup in Bengaluru (Bangalore) from 5 - 9 years of experience."
+      },
+      {
+        "lane": "general",
+        "skill": "typical backend engineer interview process",
+        "source": "web",
+        "title": "Fintech Software Developer Interview Questions | Glassdoor",
+        "url": "https://www.glassdoor.co.in/Interview/Fintech-Software-Developer-Interview-Questions-EI_IE816003.0,7_KO8,26.htm",
+        "snippet": "August 13, 2025 - I applied through university. I interviewed at Fintech (Gāndhīnagar, Gujarat) in Sept 2024 ... Position: Software Engineer – Backend Interview Experience: Positive Outcome: Offer Accepted Location: Bangalore, India Application Method: Applied through campus placement Interview Proc"
+      },
+      {
+        "lane": "general",
+        "skill": "AWS services for deployment",
+        "source": "web",
+        "title": "fintech startup is hiring Backend Engineer job in Bengaluru (Bangalore) | Cutshort",
+        "url": "https://cutshort.io/job/Backend-Engineer-Bengaluru-Bangalore-Qrata-cgLWQcfy",
+        "snippet": "•Knowledge of (AWS IoT Core) and In-depth knowledge of AWS cloud native services including Kinesis, DynamoDB, Neptune, Lambda, API Gateway, Timestream , IoT Core, GreenGrass, Aurora, Lambda, etc. ... As a senior backend engineer, you will be expected to execute and deliver large and complex projects"
+      },
+      {
+        "lane": "general",
+        "skill": "AWS services for deployment",
+        "source": "web",
+        "title": "Affirm Backend Software Engineer: 30 Interview Questions",
+        "url": "https://www.cleverprep.com/companies/affirm/backend-software-engineer",
+        "snippet": "May 18, 2026 - Avoid generic \"I love distributed systems\" or \"I want to work at a fintech\" framings. Strongest answers name a specific team or problem space, tie it to backend work you have actually shipped, and explain why Affirm is the right next step. In rough priority: (1) backend system design "
+      },
+      {
+        "lane": "general",
+        "skill": "AWS services for deployment",
+        "source": "web",
+        "title": "Leading Fintech Startup is hiring Senior Backend Engineer job in Bengaluru (Bangalore) | Cutshort",
+        "url": "https://cutshort.io/job/Senior-Backend-Engineer-Bengaluru-Bangalore-Qrata-yiAaMEIu",
+        "snippet": "Strong education track record - Bachelors or an advanced degree in Computer Science or a related engineering discipline from Indian Institute of Technology or equivalent premium institute. 2-3 years of experience in data queries, data processing and data modeling · Excellent ANSI SQL skills to handl"
+      },
+      {
+        "lane": "general",
+        "skill": "PostgreSQL performance optimization",
+        "source": "web",
+        "title": "Fintech Startup in India is hiring Backend Engineer job in Bengaluru (Bangalore) | Cutshort",
+        "url": "https://cutshort.io/job/Backend-Engineer-Bengaluru-Bangalore-Meyrahkee-Advisors-t7EbjIEU",
+        "snippet": "Strong experience with Build and Release, Agile processes and Estimation/Planning- Exposure to New Relic or similar tools to optimize web application performance Strong expertise in SQL programming, with experience of writing & optimizing queries that access/process millions of records- Experience o"
+      },
+      {
+        "lane": "general",
+        "skill": "PostgreSQL performance optimization",
+        "source": "web",
+        "title": "Leading Fintech Startup is hiring Senior Backend Engineer job in Bengaluru (Bangalore) | Cutshort",
+        "url": "https://cutshort.io/job/Senior-Backend-Engineer-Bengaluru-Bangalore-Qrata-yiAaMEIu",
+        "snippet": "- Able to integrate multiple data sources and databases into one system - Knowledge of load testing and optimizing code for performance, security, and scalability - Experience with Unit testing frameworks in Python - Knowledge of modern ..."
+      },
+      {
+        "lane": "general",
+        "skill": "PostgreSQL performance optimization",
+        "source": "web",
+        "title": "fintech startup is hiring Backend Engineer job in Bengaluru (Bangalore) | Cutshort",
+        "url": "https://cutshort.io/job/Backend-Engineer-Bengaluru-Bangalore-Qrata-cgLWQcfy",
+        "snippet": "Apply to Backend Engineer job at fintech startup in Bengaluru (Bangalore) from 5 - 9 years of experience."
+      },
+      {
+        "lane": "technical",
+        "skill": "Python",
+        "source": "github",
+        "title": "donnemartin/system-design-primer",
+        "url": "https://github.com/donnemartin/system-design-primer",
+        "snippet": "Learn how to design large-scale systems. Prep for the system design interview.  Includes Anki flashcards."
+      },
+      {
+        "lane": "technical",
+        "skill": "Python",
+        "source": "github",
+        "title": "TheAlgorithms/Python",
+        "url": "https://github.com/TheAlgorithms/Python",
+        "snippet": "All Algorithms implemented in Python"
+      },
+      {
+        "lane": "technical",
+        "skill": "Python",
+        "source": "github",
+        "title": "CyC2018/CS-Notes",
+        "url": "https://github.com/CyC2018/CS-Notes",
+        "snippet": ":books: 技术面试必备基础知识、Leetcode、计算机操作系统、计算机网络、系统设计"
+      },
+      {
+        "lane": "technical",
+        "skill": "FastAPI",
+        "source": "github",
+        "title": "rohanmistry231/Fast-API-Interview-Preparation",
+        "url": "https://github.com/rohanmistry231/Fast-API-Interview-Preparation",
+        "snippet": "A targeted resource for mastering FastAPI, featuring practice problems, code examples, and interview-focused concepts for building high-performance APIs in Python. Covers asynchronous programming, endpoint creation, and data validation for technical interview success."
+      },
+      {
+        "lane": "technical",
+        "skill": "FastAPI",
+        "source": "github",
+        "title": "eliornl/rolemule",
+        "url": "https://github.com/eliornl/rolemule",
+        "snippet": "RoleMule — One mule for every role. Self-hosted AI job companion. Paste a posting (or Chrome extension): five agents analyze the role, score fit, research the company, write a cover letter, and produce resume tips in ~30s. Dashboard, interview prep, mock sessions, hiring outreach, six career tools, "
+      },
+      {
+        "lane": "technical",
+        "skill": "FastAPI",
+        "source": "github",
+        "title": "iam-epiphany/resume-agent",
+        "url": "https://github.com/iam-epiphany/resume-agent",
+        "snippet": "面向\"面试官 × 简历主人公\"场景的个人简历 RAG 问答 Agent：把简历、证书、荣誉、项目介绍放进知识库，面试官可对简历任意提问（自我介绍、项目深挖、技术八股、HR 素质、简历细节），系统以第一人称自然作答。核心设计是\"宽松推理 + 诚实标注\"——硬事实（数字/日期/证书名）必须来自检索，证据不足时强制标注\"根据现有知识库推测\"而非编造。支持多轮追问记忆、检索兜底链、置信度分级回答、访问码闸门与 IP 限流防刷。"
+      },
+      {
+        "lane": "technical",
+        "skill": "PostgreSQL",
+        "source": "github",
+        "title": "Snailclimb/interview-guide",
+        "url": "https://github.com/Snailclimb/interview-guide",
+        "snippet": "基于 Spring Boot 4.1、Java 25、Spring AI 2.0、React、PostgreSQL/pgvector、Redis 和 RustFS 构建的开源 AI 面试平台，支持简历智能分析、模拟面试、语音面试和知识库 RAG。"
+      },
+      {
+        "lane": "technical",
+        "skill": "PostgreSQL",
+        "source": "github",
+        "title": "yongxinz/backend-interview",
+        "url": "https://github.com/yongxinz/backend-interview",
+        "snippet": "后端面试题汇总（Python、Redis、MySQL、PostgreSQL、Kafka、数据结构、算法、编程、网络）"
+      },
+      {
+        "lane": "technical",
+        "skill": "PostgreSQL",
+        "source": "github",
+        "title": "hardikvasa/database-journal",
+        "url": "https://github.com/hardikvasa/database-journal",
+        "snippet": "Databases: Concepts, commands, codes, interview questions and more..."
+      },
+      {
+        "lane": "technical",
+        "skill": "Docker",
+        "source": "github",
+        "title": "bregman-arie/devops-exercises",
+        "url": "https://github.com/bregman-arie/devops-exercises",
+        "snippet": "Linux, Jenkins, AWS, SRE, Prometheus, Docker, Python, Ansible, Git, Kubernetes, Terraform, OpenStack, SQL, NoSQL, Azure, GCP, DNS, Elastic, Network, Virtualization. DevOps Interview Questions"
+      },
+      {
+        "lane": "technical",
+        "skill": "Docker",
+        "source": "github",
+        "title": "bregman-arie/devops-resources",
+        "url": "https://github.com/bregman-arie/devops-resources",
+        "snippet": "DevOps resources - Linux, Jenkins, AWS, SRE, Prometheus, Docker, Python, Ansible, Git, Kubernetes, Terraform, OpenStack, SQL, NoSQL, Azure, GCP"
+      },
+      {
+        "lane": "technical",
+        "skill": "Docker",
+        "source": "github",
+        "title": "Tikam02/DevOps-Guide",
+        "url": "https://github.com/Tikam02/DevOps-Guide",
+        "snippet": " DevOps Guide - Development to Production all configurations with basic notes to debug efficiently."
+      },
+      {
+        "lane": "technical",
+        "skill": "AWS",
+        "source": "github",
+        "title": "ByteByteGoHq/system-design-101",
+        "url": "https://github.com/ByteByteGoHq/system-design-101",
+        "snippet": "Explain complex systems using visuals and simple terms. Help you prepare for system design interviews."
+      },
+      {
+        "lane": "technical",
+        "skill": "AWS",
+        "source": "github",
+        "title": "bregman-arie/devops-exercises",
+        "url": "https://github.com/bregman-arie/devops-exercises",
+        "snippet": "Linux, Jenkins, AWS, SRE, Prometheus, Docker, Python, Ansible, Git, Kubernetes, Terraform, OpenStack, SQL, NoSQL, Azure, GCP, DNS, Elastic, Network, Virtualization. DevOps Interview Questions"
+      },
+      {
+        "lane": "technical",
+        "skill": "AWS",
+        "source": "github",
+        "title": "iam-veeramalla/aws-devops-zero-to-hero",
+        "url": "https://github.com/iam-veeramalla/aws-devops-zero-to-hero",
+        "snippet": "AWS zero to hero repo for devops engineers to learn AWS in 30 Days. This repo includes projects, presentations, interview questions and real time examples."
+      },
+      {
+        "lane": "technical",
+        "skill": "REST API design",
+        "source": "github",
+        "title": "JayrajSinh16/CS-Fundamentals-Interview",
+        "url": "https://github.com/JayrajSinh16/CS-Fundamentals-Interview",
+        "snippet": "Comprehensive CS fundamentals repository designed for technical interview preparation. Covers 146+ topics across Networking, DBMS, OOP/Java, Operating Systems, and REST APIs with practical examples, visual diagrams, and interview questions. Perfect for students, professionals, and career changers pr"
+      },
+      {
+        "lane": "technical",
+        "skill": "REST API design",
+        "source": "github",
+        "title": "reddyprasade/Machine-Learning-Interview-Preparation",
+        "url": "https://github.com/reddyprasade/Machine-Learning-Interview-Preparation",
+        "snippet": "Prepare to Technical Skills Here are the essential skills that a Machine Learning Engineer needs, as mentioned Read me files. Within each group are topics that you should be familiar with.  Study Tip: Copy and paste this list into a document and save to your computer for easy referral.  Computer Sci"
+      },
+      {
+        "lane": "technical",
+        "skill": "REST API design",
+        "source": "github",
+        "title": "sudhir-tech/java-backend-interview-prep",
+        "url": "https://github.com/sudhir-tech/java-backend-interview-prep",
+        "snippet": "A practical Java Backend interview preparation guide covering Core Java, DSA, Spring Boot, REST APIs, SQL, Microservices and System Design."
+      },
+      {
+        "lane": "technical",
+        "skill": "unit testing",
+        "source": "github",
+        "title": "knaxus/problem-solving-javascript",
+        "url": "https://github.com/knaxus/problem-solving-javascript",
+        "snippet": " :fire: Crack you JS interviews ⚡ Collection of most common JS Interview questions with Unit Tests 🚀"
+      },
+      {
+        "lane": "technical",
+        "skill": "unit testing",
+        "source": "github",
+        "title": "cirosantilli/algorithm-cheat",
+        "url": "https://github.com/cirosantilli/algorithm-cheat",
+        "snippet": "Algorithm tutorials and simple multi-language implementations with unit tests. Test case data in language agnostic file formats. Usually updated when I'm grinding for job interviews :-)"
+      },
+      {
+        "lane": "technical",
+        "skill": "unit testing",
+        "source": "github",
+        "title": "md-abu-kayser/advanced-js-problem-solver",
+        "url": "https://github.com/md-abu-kayser/advanced-js-problem-solver",
+        "snippet": "Master JavaScript with 2,825+ expertly crafted challenges - interactive editor, runnable examples, automated unit tests, and AI-powered, step-by-step explanations for learning, interview prep, and real-world practice."
+      },
+      {
+        "lane": "technical",
+        "skill": "integration testing",
+        "source": "github",
+        "title": "RecruiterRon/Recuiting-Junior-Software-Developers",
+        "url": "https://github.com/RecruiterRon/Recuiting-Junior-Software-Developers",
+        "snippet": "David Aplin Group, one of Canada's Best Managed Companies, has partnered with our client to recruit Junior Software Developers. New graduates or soon-to-graduate students are encouraged to apply!  Our client is looking for Junior Software Developers to join their growing team. This position is respo"
+      },
+      {
+        "lane": "technical",
+        "skill": "integration testing",
+        "source": "github",
+        "title": "asmxali/Scheduler",
+        "url": "https://github.com/asmxali/Scheduler",
+        "snippet": "Using the latest tools and techniques, I built and tested a React application that allows students to book, edit and cancel interviews with a mentor. I combined a concise API with a WebSocket server to build a realtime experience. During development Jest, Storybook, and Cypress were used for integra"
+      },
+      {
+        "lane": "technical",
+        "skill": "integration testing",
+        "source": "github",
+        "title": "MohanNalgire/InterviewQuestions",
+        "url": "https://github.com/MohanNalgire/InterviewQuestions",
+        "snippet": "Interview question's on all SDLC phases Planning, Analysis, Design, Implementation(Development), Testing & Integration, Deployment, Maintenance and all its technologies and tools"
+      },
+      {
+        "lane": "technical",
+        "skill": "high write throughput optimization",
+        "source": "web",
+        "title": "Performance Testing Interview Questions with Answers - GeeksforGeeks",
+        "url": "https://www.geeksforgeeks.org/software-testing/performance-testing-interview-questions/",
+        "snippet": "High throughput indicates that the system can handle a large number of transactions efficiently. Throughput helps in understanding the system's capacity and efficiency under different load conditions."
+      },
+      {
+        "lane": "technical",
+        "skill": "high write throughput optimization",
+        "source": "web",
+        "title": "High throughput Interview Questions | Glassdoor",
+        "url": "https://www.glassdoor.co.in/Interview/high-throughput-interview-questions-SRCH_KO0,15.htm",
+        "snippet": "7 \"High throughput\" interview questions. Learn about interview questions and interview process for 4 companies."
+      },
+      {
+        "lane": "technical",
+        "skill": "high write throughput optimization",
+        "source": "web",
+        "title": "System Resource & I/O Optimization Interview Questions & Answers (2026 ...",
+        "url": "https://interviewstack.io/ai_engineer/categories/question-bank/system-resource-and-input-output-optimization",
+        "snippet": "System Resource & I/O Optimization interview questions with detailed sample answers. Practice the questions most commonly asked in 2026 interviews."
+      }
+    ],
+    "tool_calls_log": [
+      "technical_research {'skills': ['Python', 'FastAPI', 'PostgreSQL', 'Docker', 'AWS', 'REST API design', 'unit testing', 'integration testing', 'high write throughput optimization']}",
+      "general_research {'role': 'Backend Engineer at a fintech startup in Bangalore', 'topics': ['fintech industry', 'Bangalore tech startup ecosystem', 'typical backend engineer interview process', 'AWS services for deployment', 'PostgreSQL performance optimization']}"
+    ],
+    "missing_by_lane": {
+      "technical": [],
+      "soft": [],
+      "general": []
+    },
+    "lanes_to_rerun": [],
+    "round": 1,
+    "exhausted": false,
+    "prep_document": "# Interview Preparation Guide – Backend Engineer (Fintech Startup, Bangalore)\n\n## 1. Role snapshot\nBackend Engineer at a fintech startup in Bangalore responsible for designing, building, and maintaining high‑throughput RESTful services using **Python** and **FastAPI**, backed by **PostgreSQL**, containerised with **Docker**, and deployed on **AWS**. The role emphasizes low‑latency write paths, solid testing practices, and collaboration with product and data teams in a fast‑moving startup environment.  \n*Source:* [Backend Engineer – Meyrahkee Advisors (Cutshort)](https://cutshort.io/job/Backend-Engineer-Bengaluru-Bangalore-Meyrahkee-Advisors-t7EbjIEU)\n\n## 2. Must-have skills\n| Skill | Why it matters (per sources) | Helpful link |\n|-------|-----------------------------|--------------|\n| **Python** | Core language for service logic; referenced in job posts and algorithm repo. | [TheAlgorithms/Python](https://github.com/TheAlgorithms/Python) |\n| **FastAPI** | Primary framework for REST API development; highlighted in job ads. | [FastAPI Interview Preparation](https://github.com/rohanmistry231/Fast-API-Interview-Preparation) |\n| **PostgreSQL** | Main relational store; performance and optimisation are key. | (system‑design primer covers DB optimisation) |\n| **Docker** | Used for containerising services; mentioned in job descriptions. | (no dedicated link – see job posts) |\n| **AWS** | Deployment platform; services such as EC2, RDS, Lambda, etc., are expected. | (system‑design primer covers AWS deployment) |\n| **REST API design** | Core interface for external and internal clients. | (FastAPI prep repo) |\n| **Unit testing** | Ensures reliability of individual components. | (FastAPI prep repo) |\n| **Integration testing** | Validates end‑to‑end flows; part of testing strategy. | (FastAPI prep repo) |\n| **High write throughput optimization** | Critical for fintech transaction processing. | [System Design Primer](https://github.com/donnemartin/system-design-primer) |\n| **Fintech industry knowledge** | Understanding of payments, compliance, and domain‑specific concerns. | [Fintech Interview Questions (Glassdoor)](https://www.glassdoor.co.in/Interview/Fintech-Interview-Questions-E816003.htm) |\n| **Bangalore tech startup ecosystem** | Awareness of local talent, culture, and market dynamics. | (job postings mention Bangalore) |\n| **Typical backend engineer interview process** | Helps you anticipate stages (screen, coding, system design, behavioural). | [Fintech Software Developer Interview Questions (Glassdoor)](https://www.glassdoor.co.in/Interview/Fintech-Software-Developer-Interview-Questions-EI_IE816003.0,7_KO8,26.htm) |\n| **AWS services for deployment** | Specific services (e.g., RDS, Elastic Beanstalk, ECS) likely discussed. | [System Design Primer](https://github.com/donnemartin/system-design-primer) |\n| **PostgreSQL performance optimization** | Indexing, query planning, connection pooling, read‑replica strategies. | [System Design Primer](https://github.com/donnemartin/system-design-primer) |\n\n## 3. Prep plan (2‑week intensive + 1‑week review)\n\n| Week | Focus | Activities (based on material) |\n|------|-------|---------------------------------|\n| **1** | **Language & Framework** | - Review Python fundamentals using *TheAlgorithms/Python* (data structures, OOP). <br>- Work through the *FastAPI Interview Preparation* repo: build a small CRUD API, practice dependency injection, Pydantic models, and async endpoints. |\n| **2** | **Databases, Containers & Cloud** | - Study PostgreSQL optimisation topics from the *System Design Primer* (indexing, EXPLAIN ANALYZE, connection pooling). <br>- Run a local PostgreSQL instance in Docker; experiment with bulk inserts and write‑throughput tuning. <br>- Explore AWS services (RDS, EC2, ECS/Fargate, Lambda) via the primer’s AWS section; deploy the FastAPI app to a Docker container on ECS or Elastic Beanstalk. |\n| **3** | **Testing, API Design & Domain** | - Add unit tests (pytest) and integration tests (TestClient) to the FastAPI project. <br>- Review REST best practices (versioning, error handling, pagination) from the FastAPI prep material. <br>- Read selected fintech interview question sets (Glassdoor, Cleverprep) to grasp domain‑specific behavioural and product‑sense questions. |\n| **4** (optional) | **Mock interviews & review** | - Conduct timed coding screens (LeetCode‑style easy/medium) focusing on Python. <br>- Practice system design questions around high‑throughput payment processing (use primer as guide). <br>- Review answers to the fintech question lists; prepare STAR stories for behavioural rounds. |\n\n**Key links to revisit:**  \n- Python: https://github.com/TheAlgorithms/Python  \n- FastAPI prep: https://github.com/rohanmistry231/Fast-API-Interview-Preparation  \n- System design primer (covers PostgreSQL, AWS, high write throughput): https://github.com/donnemartin/system-design-primer  \n- Fintech interview questions: https://www.glassdoor.co.in/Interview/Fintech-Interview-Questions-E816003.htm  \n- Affirm backend questions (example of tech‑focused fintech interview): https://www.cleverprep.com/companies/affirm/backend-software-engineer  \n\n## 4. Likely interview questions\nWhile the exact wording varies, the supplied interview‑question collections indicate you should expect questions in the following areas. Review the linked sources for concrete examples.\n\n| Topic | Typical focus (per sources) |\n|-------|-----------------------------|\n| **Fintech domain** | Understanding of payment flows, KYC/AML basics, transaction reconciliation, regulatory considerations. |\n| **Python / FastAPI** | Differences between `def` and `async def`, dependency injection, Pydantic validation, handling background tasks, middleware. |\n| **REST API design** | Versioning strategies, idempotency, error response formats, pagination, HATEOAS basics. |\n| **PostgreSQL** | Index types, EXPLAIN ANALYZE, handling high write loads (partitioning, read replicas, connection pooling), avoiding lock contention. |\n| **Docker** | Writing efficient Dockerfiles, multi‑stage builds, debugging containers, volume mounts for dev vs prod. |\n| **AWS** | Choosing between RDS vs Aurora, using Elastic Beanstalk vs ECS vs Lambda, IAM roles, VPC basics, CloudWatch monitoring. |\n| **Testing** | Writing unit tests with `pytest`, mocking external services, integration test strategies with TestClient, coverage goals. |\n| **High write throughput** | Batch inserts, using `COPY`, async DB drivers, connection pooling, sharding considerations, monitoring write latency. |\n| **Behavioural / startup fit** | Motivation for fintech, experience working in ambiguous environments, prioritisation, collaboration with product/data teams, handling production incidents. |\n\n*Refer to the links in the “Must-have skills” and “Prep plan” sections for the full question lists and detailed answers.*\n\n## GitHub repos found in research\n\n- **donnemartin/system-design-primer** - https://github.com/donnemartin/system-design-primer\n  Learn how to design large-scale systems. Prep for the system design interview.  Includes Anki flashcards.\n\n- **rohanmistry231/Fast-API-Interview-Preparation** - https://github.com/rohanmistry231/Fast-API-Interview-Preparation\n  A targeted resource for mastering FastAPI, featuring practice problems, code examples, and interview-focused concepts for building high-performance APIs in Python. Covers asynchronous programming, endpoint creation, and data validation for technical interview success.\n\n- **Snailclimb/interview-guide** - https://github.com/Snailclimb/interview-guide\n  基于 Spring Boot 4.1、Java 25、Spring AI 2.0、React、PostgreSQL/pgvector、Redis 和 RustFS 构建的开源 AI 面试平台，支持简历智能分析、模拟面试、语音面试和知识库 RAG。\n\n- **bregman-arie/devops-exercises** - https://github.com/bregman-arie/devops-exercises\n  Linux, Jenkins, AWS, SRE, Prometheus, Docker, Python, Ansible, Git, Kubernetes, Terraform, OpenStack, SQL, NoSQL, Azure, GCP, DNS, Elastic, Network, Virtualization. DevOps Interview Questions\n\n- **ByteByteGoHq/system-design-101** - https://github.com/ByteByteGoHq/system-design-101\n  Explain complex systems using visuals and simple terms. Help you prepare for system design interviews.\n"
+  }
+}

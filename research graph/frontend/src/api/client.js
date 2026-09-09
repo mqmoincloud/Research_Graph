@@ -1,7 +1,3 @@
-// One axios instance for the whole app.
-// baseURL is left empty -> requests go to the same origin ("/api/...")
-// and the Vite dev server forwards them to FastAPI (http://127.0.0.1:8000).
-// When deploying, set VITE_API_BASE_URL in .env.
 
 import axios from 'axios'
 
@@ -10,17 +6,64 @@ const api = axios.create({
   timeout: 300000,   // the graph takes 1-3 minutes
 })
 
-// We pull the backend error message out and throw a plain Error,
-// so showing just err.message in the UI is enough.
+// ---- the token ----------------------------------------------------------
+// Kept in localStorage under "token", the same as CaseDesk. It survives a
+// page reload, which sessionStorage would not.
+
+export function getToken() {
+  return localStorage.getItem('token')
+}
+
+export function saveToken(token) {
+  localStorage.setItem('token', token)
+}
+
+export function removeToken() {
+  localStorage.removeItem('token')
+}
+
+// A page can hand this in so that an expired token sends the user back to the
+// login screen. Set once, in Layout, rather than in every page.
+let onUnauthorised = null
+
+export function setUnauthorisedHandler(handler) {
+  onUnauthorised = handler
+}
+
+// Every request carries the token if we have one, as the standard
+// "Authorization: Bearer <token>" header the backend's HTTPBearer expects.
+api.interceptors.request.use((cfg) => {
+  const token = getToken()
+  if (token) {
+    cfg.headers.Authorization = `Bearer ${token}`
+  }
+  return cfg
+})
+
 api.interceptors.response.use(
   (res) => res,
   (err) => {
-    const detail = err.response?.data?.detail
+    const status = err.response?.status ?? 0
+
+    if (status === 401) {
+      removeToken()
+      if (onUnauthorised) onUnauthorised()
+    }
+
+    const envelope = err.response?.data?.error
+
+    // A field message is more useful than "Validation failed", so it wins.
+    const fieldMessage = envelope && Object.values(envelope.fields || {})[0]
+
     const message =
-      (typeof detail === 'string' && detail) ||
+      fieldMessage ||
+      envelope?.message ||
       err.response?.statusText ||
       'Could not connect to the backend. Is the API running?'
-    return Promise.reject(new Error(message))
+
+    const error = new Error(message)
+    error.status = status
+    return Promise.reject(error)
   },
 )
 

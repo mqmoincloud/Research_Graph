@@ -24,12 +24,18 @@ export default defineConfig(({ mode }) => {
       // Now if the port is busy Vite errors clearly instead of sliding away.
       port: 5200,
       strictPort: true,
-      proxy: {
-        '/api': {
-          target,
-          changeOrigin: true,
-        },
-      },
+      // Every path the backend owns has to be listed. It was only '/api'
+      // before, because that was the only route there was - the auth routes
+      // sit at the top level ('/auth/login', '/me', ...) exactly as they do
+      // in CaseDesk, so each of those prefixes needs forwarding too.
+      // Anything not listed here is served by Vite as the React app instead,
+      // which comes back as HTML where JSON was expected.
+      proxy: Object.fromEntries(
+        ['/api', '/auth', '/me', '/admin', '/users'].map((path) => [
+          path,
+          { target, changeOrigin: true },
+        ]),
+      ),
     },
   }
 })

@@ -1,12 +1,3 @@
-// There is only one call to the backend:
-//
-//   POST /api/run   ->  form-data "file"  ->  the whole graph result
-//
-//   result = { role_summary, requirements, selected_lanes, evidence,
-//              missing_by_lane, round, exhausted, prep_document, ... }
-//
-// The call can take 1-3 minutes - the graph answers only once it finishes.
-
 import api from './client'
 
 export async function runJd(file, onProgress) {
@@ -21,5 +12,15 @@ export async function runJd(file, onProgress) {
     },
   })
 
+  return res.data
+}
+
+export async function listDemos() {
+  const res = await api.get('/api/demo')
+  return res.data
+}
+
+export async function loadDemo(name) {
+  const res = await api.get(`/api/demo/${name}`)
   return res.data
 }

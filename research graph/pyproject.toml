@@ -18,6 +18,14 @@ dependencies = [
     "uvicorn[standard]>=0.30",
     "python-multipart>=0.0.9",
     "langchain-openai>=1.6.0",
+    # --- Auth / database (same stack as CaseDesk) ---
+    "sqlalchemy>=2.0.36",
+    "alembic>=1.14",
+    "python-jose>=3.3",        # JWT encode/decode
+    "cryptography>=43.0",      # signing backend for python-jose
+    "passlib>=1.7.4",          # password hashing wrapper
+    "bcrypt==4.0.1",           # pinned: passlib 1.7.4 breaks on bcrypt >= 4.1
+    "email-validator>=2.2",    # required by pydantic's EmailStr
 ]
 
 # This is an APPLICATION, not a library - nobody will pip install it and
@@ -25,6 +33,15 @@ dependencies = [
 [tool.uv]
 package = false
 
-# Only for scanned PDFs. Running these also needs two SEPARATE WINDOWS
-# PROGRAMS (Tesseract and Poppler), pip alone is not enough.
-# If you need it:  uv sync --group ocr
+# Only for scanned PDFs. pytesseract is a wrapper - TESSERACT ITSELF IS A
+# SEPARATE WINDOWS PROGRAM, pip alone is not enough:
+#     winget install UB-Mannheim.TesseractOCR
+# pypdfium2 turns a PDF page into an image. pdf2image would do the same but
+# needs Poppler, a second Windows program - this way there is only one.
+#     uv sync --group ocr
+[dependency-groups]
+ocr = [
+    "pillow>=12.3.0",
+    "pypdfium2>=5.13.0",
+    "pytesseract>=0.3.13",
+]
