@@ -1,11 +1,7 @@
 import { useState } from 'react'
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 
-// Final prep document. We show the markdown as-is, along with
-// copy and download buttons.
-//
-// The same panel shows a saved sample run (GET /api/demo/:name returns the
-// same shape POST /api/run does). The only difference is the badge - without
-// it there would be no way to tell a saved document from one just produced.
 
 export default function ResultPanel({ run, onReset }) {
   const [copied, setCopied] = useState(false)
@@ -62,7 +58,11 @@ export default function ResultPanel({ run, onReset }) {
           is no telling what happened. Normally this should not happen: llm.py
           raises an error on an empty answer. This is only a safety net. */}
       {run.prep_document ? (
-        <pre className="doc">{run.prep_document}</pre>
+        <div className="doc">
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>
+            {run.prep_document}
+          </ReactMarkdown>
+        </div>
       ) : (
         <p className="error-text">
           The run finished but the document came back empty. Check the backend

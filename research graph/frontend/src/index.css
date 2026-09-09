@@ -345,16 +345,130 @@ button {
   color: var(--muted);
 }
 
+/* The box holding the rendered markdown. Everything below styles the tags
+   react-markdown produces - h1, p, li and so on - so we do not touch the
+   component itself when the look needs a change. */
 .doc {
-  margin: 0;
   padding: 16px;
   background: var(--panel-2);
   border: 1px solid var(--line);
   border-radius: 8px;
-  font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
-  font-size: 13px;
-  white-space: pre-wrap;
+  font-size: 14px;
+  line-height: 1.65;
   overflow-x: auto;
+}
+
+/* No gap above the first line and below the last, so the padding stays even. */
+.doc > *:first-child {
+  margin-top: 0;
+}
+
+.doc > *:last-child {
+  margin-bottom: 0;
+}
+
+.doc h1,
+.doc h2,
+.doc h3,
+.doc h4 {
+  margin: 24px 0 8px;
+  line-height: 1.3;
+}
+
+.doc h1 {
+  font-size: 20px;
+}
+
+.doc h2 {
+  font-size: 17px;
+}
+
+/* The model rarely goes past h2, but h3/h4 get a size so they do not fall
+   back to the browser default if it ever does. */
+.doc h3,
+.doc h4 {
+  font-size: 15px;
+  color: var(--muted);
+}
+
+.doc p {
+  margin: 0 0 12px;
+}
+
+.doc ul,
+.doc ol {
+  margin: 0 0 12px;
+  padding-left: 22px;
+}
+
+.doc li {
+  margin-bottom: 4px;
+}
+
+.doc a {
+  color: var(--accent);
+}
+
+.doc strong {
+  color: #fff;
+}
+
+/* `inline code` */
+.doc code {
+  padding: 1px 5px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+  font-size: 12.5px;
+}
+
+/* A fenced block is a <pre> wrapping a <code>, so the border and padding go on
+   the <pre> and are turned off again on the <code> inside it. */
+.doc pre {
+  margin: 0 0 12px;
+  padding: 12px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  overflow-x: auto;
+}
+
+.doc pre code {
+  padding: 0;
+  background: none;
+  border: none;
+}
+
+.doc blockquote {
+  margin: 0 0 12px;
+  padding-left: 12px;
+  border-left: 3px solid var(--line);
+  color: var(--muted);
+}
+
+.doc hr {
+  margin: 20px 0;
+  border: none;
+  border-top: 1px solid var(--line);
+}
+
+/* Tables come from remark-gfm. */
+.doc table {
+  margin: 0 0 12px;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.doc th,
+.doc td {
+  padding: 6px 10px;
+  border: 1px solid var(--line);
+  text-align: left;
+}
+
+.doc th {
+  background: var(--panel);
 }
 
 /* ---- errors ---- */
