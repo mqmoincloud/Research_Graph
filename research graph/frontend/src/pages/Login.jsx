@@ -3,6 +3,8 @@ import { Link, useNavigate } from 'react-router-dom'
 
 import { login } from '../api/auth'
 
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
 export default function Login() {
   const navigate = useNavigate()
 
@@ -18,11 +20,30 @@ export default function Login() {
     e.preventDefault()
     if (saving) return
 
+    const cleanEmail = email.trim()
+
+    if (!cleanEmail) {
+      setError('Email is required.')
+      return
+    }
+
+    if (!EMAIL_RE.test(cleanEmail)) {
+      setError('Enter a valid email address.')
+      return
+    }
+
+    // Only the *all spaces* case is rejected. The password itself is sent
+    // untrimmed, because a space can be a real character inside one.
+    if (!password.trim()) {
+      setError('Password is required.')
+      return
+    }
+
     setError('')
     setSaving(true)
 
     try {
-      await login(email, password)
+      await login(cleanEmail, password)
       navigate('/')
     } catch (err) {
       // The API gives the same message for a wrong password and an unknown

@@ -3,6 +3,8 @@ import { Link, useNavigate } from 'react-router-dom'
 
 import { login, signup } from '../api/auth'
 
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
 export default function Signup() {
   const navigate = useNavigate()
 
@@ -16,14 +18,42 @@ export default function Signup() {
     e.preventDefault()
     if (saving) return
 
+    const cleanName = name.trim()
+    const cleanEmail = email.trim()
+
+    if (!cleanName) {
+      setError('Name is required.')
+      return
+    }
+
+    if (!cleanEmail) {
+      setError('Email is required.')
+      return
+    }
+
+    if (!EMAIL_RE.test(cleanEmail)) {
+      setError('Enter a valid email address.')
+      return
+    }
+
+    if (!password.trim()) {
+      setError('Password cannot be blank or only spaces.')
+      return
+    }
+
+    if (password.length < 8) {
+      setError('Password must be at least 8 characters.')
+      return
+    }
+
     setError('')
     setSaving(true)
 
     try {
-      await signup(name, email, password)
+      await signup(cleanName, cleanEmail, password)
       // Straight in afterwards, so nobody has to type the same password twice.
       // Signup only creates the row; the token still has to come from /login.
-      await login(email, password)
+      await login(cleanEmail, password)
       navigate('/')
     } catch (err) {
       setError(err.message)

@@ -22,12 +22,19 @@ export default function Profile() {
     e.preventDefault()
     if (savingName) return
 
+    const cleanName = name.trim()
+
+    if (!cleanName) {
+      setNameError('Name is required.')
+      return
+    }
+
     setNameMsg('')
     setNameError('')
     setSavingName(true)
 
     try {
-      await updateMyName(name)
+      await updateMyName(cleanName)
       setNameMsg('Saved.')
       // The top bar is showing the OLD name until Layout asks /me again.
       user.reloadUser()
@@ -41,6 +48,21 @@ export default function Profile() {
   async function handlePassword(e) {
     e.preventDefault()
     if (savingPassword) return
+
+    if (!currentPassword.trim()) {
+      setPasswordError('Current password is required.')
+      return
+    }
+
+    if (!newPassword.trim()) {
+      setPasswordError('New password cannot be blank or only spaces.')
+      return
+    }
+
+    if (newPassword.length < 8) {
+      setPasswordError('New password must be at least 8 characters.')
+      return
+    }
 
     setPasswordMsg('')
     setPasswordError('')
